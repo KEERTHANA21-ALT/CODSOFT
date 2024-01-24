@@ -1,0 +1,34 @@
+import java.util.Scanner;
+
+public class QuizGame {
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String[] questions = {
+            "Name the biggest continent in the world?",
+            "Name the largest planet of our Solar System?",
+            "Which is the tallest mountain in the world?"
+        };
+        String[] options = {
+            "a) Asia b) Europe c) Africa",
+            "a) Earth b) Jupiter c) Venus",
+            "a) K2 b) kangchejunga c) Earth"
+        };
+        String[] correctAnswers = {"a", "b", "c"};
+
+        int correctCount = 0;
+        for (int i = 0; i < questions.length; i++) {
+            System.out.println(questions[i]);
+            System.out.println(options[i]);
+            String userAnswer = scanner.nextLine().toLowerCase();
+            if (userAnswer.equals(correctAnswers[i])) {
+                correctCount++;
+            }
+        }
+
+        System.out.println("\nQuiz Summary:");
+        System.out.println("Correct answers: " + correctCount);
+        System.out.println("Incorrect answers: " + (questions.length - correctCount));
+        System.out.println("Final score: " + (correctCount * 10) + "/" + (questions.length * 10));
+    }
+}
